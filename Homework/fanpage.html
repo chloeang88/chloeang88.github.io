@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>elle. ✿ a little fan corner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Give+You+Glory&family=Grand+Hotel&family=Caveat:wght@500;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink-bg: #ffeaf1;
+    --pink-stripe: #ffd6e4;
+    --rose-deep: #8a3d59;
+    --rose-mid: #c46482;
+    --sage: #8fa885;
+    --sage-deep: #5f7a58;
+    --cream: #fffaf6;
+    --gold: #f0b8c4;
+    --pastel-blue: #b9dcec;
+    --pastel-yellow: #fbe7a6;
+    --pastel-purple: #dcc7ec;
+    --pastel-pink: #f3b8d1;
+    --shadow: 0 10px 26px rgba(138,61,89,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    font-family:'Quicksand', sans-serif;
+    color: var(--rose-deep);
+    background:
+      repeating-linear-gradient(
+        90deg,
+        var(--pink-bg) 0px,
+        var(--pink-bg) 38px,
+        var(--pink-stripe) 38px,
+        var(--pink-stripe) 76px
+      );
+    min-height:100vh;
+    overflow-x:hidden;
+  }
+
+  /* floating doodles */
+  .doodle{
+    position:absolute;
+    opacity:0.55;
+    pointer-events:none;
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float{
+    0%,100%{ transform: translateY(0) rotate(0deg); }
+    50%{ transform: translateY(-12px) rotate(6deg); }
+  }
+
+  header{
+    position:relative;
+    text-align:center;
+    padding: 70px 20px 40px;
+  }
+
+  .badge{
+    display:inline-block;
+    background: var(--sage);
+    color: var(--cream);
+    font-family:'Caveat', cursive;
+    font-size: 1.3rem;
+    font-weight:700;
+    padding: 6px 22px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    transform: rotate(-3deg);
+    margin-bottom: 18px;
+  }
+
+  h1{
+    font-family:'Give You Glory', cursive;
+    font-size: clamp(4rem, 12vw, 8rem);
+    color: var(--rose-deep);
+    margin: 0;
+    line-height: 1;
+    text-shadow: 3px 3px 0 rgba(255,255,255,0.6);
+  }
+
+  .subtitle{
+    font-family:'Caveat', cursive;
+    font-size: 1.6rem;
+    color: var(--rose-mid);
+    margin-top: 10px;
+    font-weight: 600;
+  }
+
+  main{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 24px 80px;
+    position:relative;
+  }
+
+  /* intro card */
+  .intro-card{
+    background: var(--cream);
+    border-radius: 28px;
+    padding: 34px 38px;
+    box-shadow: var(--shadow);
+    border: 2px dashed var(--gold);
+    text-align:center;
+    margin-bottom: 60px;
+  }
+  .intro-card p{
+    font-size: 1.08rem;
+    line-height: 1.7;
+    margin: 0;
+  }
+  .intro-card .signoff{
+    display:block;
+    margin-top: 16px;
+    font-family:'Caveat', cursive;
+    font-size: 1.4rem;
+    color: var(--sage-deep);
+  }
+
+  /* photo carousel — the signature element */
+  section.gallery{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom: 70px;
+  }
+
+  .section-title{
+    font-family:'Grand Hotel', cursive;
+    font-weight: 400;
+    font-size: 3.2rem;
+    color: var(--rose-deep);
+    margin-bottom: 26px;
+    text-align:center;
+    text-shadow: 2px 2px 0 rgba(255,255,255,0.7);
+  }
+
+  .polaroid-stack{
+    position:relative;
+    width: min(340px, 80vw);
+    height: 420px;
+    margin-bottom: 26px;
+  }
+
+  .polaroid{
+    position:absolute;
+    inset:0;
+    background: var(--cream);
+    border-radius: 6px;
+    box-shadow: 0 14px 30px rgba(138,61,89,0.22);
+    padding: 16px 16px 60px;
+    transition: transform 0.5s cubic-bezier(.2,.9,.3,1.1), opacity 0.4s ease;
+  }
+
+  .polaroid .frame{
+    width:100%;
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--pink-stripe), var(--gold));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
+  }
+
+  .polaroid img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    display:block;
+  }
+
+  .polaroid .placeholder-text{
+    font-family:'Caveat', cursive;
+    color: var(--rose-deep);
+    font-size: 1.15rem;
+    text-align:center;
+    padding: 20px;
+    line-height:1.4;
+  }
+
+  .polaroid .caption{
+    position:absolute;
+    bottom: 16px;
+    left: 0; right:0;
+    text-align:center;
+    font-family:'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--rose-mid);
+  }
+
+  .tape{
+    position:absolute;
+    top:-14px; left:50%;
+    transform: translateX(-50%) rotate(-4deg);
+    width: 80px; height: 26px;
+    background: rgba(240,184,196,0.75);
+    border: 1px solid rgba(255,255,255,0.4);
+  }
+
+  .next-btn{
+    font-family:'Caveat', cursive;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--rose-deep);
+    color: var(--cream);
+    border: none;
+    padding: 12px 34px;
+    border-radius: 40px;
+    cursor:pointer;
+    box-shadow: var(--shadow);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .next-btn:hover{ transform: translateY(-3px) scale(1.04); background: var(--sage-deep); }
+  .next-btn:active{ transform: translateY(0) scale(0.98); }
+  .next-btn:focus-visible{ outline: 3px solid var(--sage); outline-offset:3px; }
+
+  .dots{
+    display:flex; gap:8px; margin-top:14px;
+  }
+  .dot{
+    width:9px; height:9px; border-radius:50%;
+    background: var(--pink-stripe);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .dot.active{ background: var(--rose-deep); transform: scale(1.3); }
+
+  /* fun facts */
+  .facts-title{
+    font-family:'Grand Hotel', cursive;
+    font-weight: 400;
+    font-size: 3.2rem;
+    text-align:center;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0 rgba(255,255,255,0.7);
+  }
+
+  .facts-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+  }
+
+  .fact-card{
+    background: var(--cream);
+    border-radius: 22px;
+    padding: 24px 22px;
+    box-shadow: var(--shadow);
+    position:relative;
+    border-top: 5px solid var(--pastel-blue);
+  }
+  .fact-card:nth-child(2){ border-top-color: var(--pastel-yellow); }
+  .fact-card:nth-child(3){ border-top-color: var(--pastel-purple); }
+  .fact-card:nth-child(4){ border-top-color: var(--pastel-pink); }
+
+  .fact-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--pastel-blue);
+    color: var(--rose-deep);
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
+  .fact-card:nth-child(2) .fact-icon{ background: var(--pastel-yellow); }
+  .fact-card:nth-child(3) .fact-icon{ background: var(--pastel-purple); }
+  .fact-card:nth-child(4) .fact-icon{ background: var(--pastel-pink); }
+
+  .fact-card h3{
+    font-family:'Caveat', cursive;
+    font-size: 1.5rem;
+    margin: 0 0 6px;
+    color: var(--rose-deep);
+  }
+  .fact-card p{
+    margin:0;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  footer{
+    text-align:center;
+    padding: 30px 20px 50px;
+    font-family:'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--rose-mid);
+  }
+
+  .note{
+    max-width: 640px;
+    margin: 0 auto 50px;
+    background: rgba(255,255,255,0.6);
+    border: 1.5px dashed var(--sage);
+    border-radius: 18px;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<span class="doodle" style="top:30px; left:8%; font-size:2rem;">⭐</span>
+<span class="doodle" style="top:120px; right:10%; font-size:1.6rem; animation-delay:1s;">💗</span>
+<span class="doodle" style="top:60px; right:22%; font-size:1.3rem; animation-delay:2s;">✿</span>
+
+<header>
+  <span class="badge">01 &nbsp;·&nbsp; fan page</span>
+  <h1>elle fanning</h1>
+  <p class="subtitle">a little corner just for her ✿</p>
+</header>
+
+<main>
+
+  <div class="intro-card">
+    <p>
+      There's something so dreamy about the way Elle Fanning moves through a role — one moment
+      she's whimsical and glowing, the next she's quietly devastating, and somehow it always feels
+      effortless. From <em>Maleficent</em>'s Princess Aurora to <em>The Great</em>'s unhinged, brilliant
+      Catherine, she brings this soft, curious, slightly chaotic sparkle to everything she touches.
+      She's just so cute and so talented, and I genuinely adore her acting — this whole page is a
+      little love letter to that.
+    </p>
+    <span class="signoff">forever a fan, 🎀</span>
+  </div>
+
+  <section class="gallery">
+    <h2 class="section-title">the gallery</h2>
+
+    <div class="polaroid-stack" id="polaroidStack">
+      <div class="polaroid" data-slide="0">
+        <div class="tape"></div>
+        <div class="frame">
+          <p class="placeholder-text">📷 photo 1 goes here<br><small>save it as "elle-1.jpg" next to this file</small></p>
+        </div>
+        <div class="caption">golden girl ✨</div>
+      </div>
+      <div class="polaroid" data-slide="1" style="opacity:0; pointer-events:none;">
+        <div class="tape"></div>
+        <div class="frame">
+          <p class="placeholder-text">📷 photo 2 goes here<br><small>save it as "elle-2.jpg" next to this file</small></p>
+        </div>
+        <div class="caption">whimsical era 🌸</div>
+      </div>
+      <div class="polaroid" data-slide="2" style="opacity:0; pointer-events:none;">
+        <div class="tape"></div>
+        <div class="frame">
+          <p class="placeholder-text">📷 photo 3 goes here<br><small>save it as "elle-3.jpg" next to this file</small></p>
+        </div>
+        <div class="caption">soft & starry 🎀</div>
+      </div>
+    </div>
+
+    <button class="next-btn" id="nextBtn">next look 💫</button>
+    <div class="dots" id="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="facts-title">fun facts ✿</h2>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <span class="fact-icon">01</span>
+        <h3>Ryan Gosling forever</h3>
+        <p>Elle has had a soft spot for Ryan Gosling since she was a teenager, once saying his movie
+        <em>The Ides of March</em> is a favorite and that she and her sister Dakota had matching
+        Ryan Gosling coloring books. Iconic behavior, honestly.</p>
+      </div>
+      <div class="fact-card">
+        <span class="fact-icon">02</span>
+        <h3>her Jack Black era</h3>
+        <p>Elle has openly declared Jack Black her celebrity "hall pass," calling him the
+        "hottest man" she's ever seen. When they finally met at the Golden Globes, she said it
+        "made her life." Bestie behavior.</p>
+      </div>
+      <div class="fact-card">
+        <span class="fact-icon">03</span>
+        <h3>go-to order</h3>
+        <p>Her favorite food is a classic Cobb salad — though she's also confessed to a serious
+        strawberry obsession and a love of extra mayo on the side, always.</p>
+      </div>
+      <div class="fact-card">
+        <span class="fact-icon">04</span>
+        <h3>the acting range</h3>
+        <p>From child star in <em>Super 8</em> and <em>Somewhere</em> to Catherine the Great in
+        <em>The Great</em> and Rachel in <em>Sentimental Value</em> — she just keeps getting more
+        whimsical and more brilliant with every role.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  made with 💗 for the biggest Elle Fanning fan
+</footer>
+
+<script>
+  const slides = document.querySelectorAll('.polaroid');
+  const dots = document.querySelectorAll('.dot');
+  const btn = document.getElementById('nextBtn');
+  let current = 0;
+
+  function showSlide(index){
+    slides.forEach((slide, i) => {
+      if(i === index){
+        slide.style.opacity = '1';
+        slide.style.pointerEvents = 'auto';
+        slide.style.transform = 'rotate(' + (i % 2 === 0 ? '-2deg' : '2deg') + ')';
+      } else {
+        slide.style.opacity = '0';
+        slide.style.pointerEvents = 'none';
+      }
+    });
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+  }
+
+  btn.addEventListener('click', () => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  });
+
+  showSlide(0);
+
+  // if actual images exist alongside this file (elle-1.jpg etc), swap them in automatically
+  ['elle-1.jpg','elle-2.jpg','elle-3.jpg'].forEach((filename, i) => {
+    const img = new Image();
+    img.onload = () => {
+      const frame = slides[i].querySelector('.frame');
+      frame.innerHTML = '';
+      const realImg = document.createElement('img');
+      realImg.src = filename;
+      frame.appendChild(realImg);
+    };
+    img.onerror = () => {}; // keep placeholder if not found
+    img.src = filename;
+  });
+</script>
+
+</body>
+</html>
