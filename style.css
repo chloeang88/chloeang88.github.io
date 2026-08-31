@@ -1,0 +1,35 @@
+.container{
+    margin:0;
+    display:flex;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    flex-direction: column;
+    align-items:center;
+    background-color:  #ffeaf1;
+}
+:root{
+    --pink-bg: #ffeaf1;
+    --pink-stripe: #ffd6e4;
+    --rose-deep: #8a3d59;
+    --rose-mid: #c46482;
+    --sage: #8fa885;
+    --sage-deep: #5f7a58;
+    --cream: #fffaf6;
+    --gold: #f0b8c4;
+    --pastel-blue: #b9dcec;
+    --pastel-yellow: #fbe7a6;
+    --pastel-purple: #dcc7ec;
+    --pastel-pink: #f3b8d1;
+    --shadow: 0 10px 26px rgba(138,61,89,0.14);
+  }
+.header{
+   color: #b9dcec
+}
+.profile h2{
+    text-align:center;
+    font-family:'Quicksand', sans-serif;;
+
+}
+.profile h2{
+    text-align:center;
+
+}
