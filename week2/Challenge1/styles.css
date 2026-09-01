@@ -1,0 +1,143 @@
+/* styles.css - Challenge #1 (Skeleton) */
+body{ 
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color:cornsilk;
+    color:dimgrey;  
+    margin: 0;
+    height:100vh
+       
+    }
+
+.container{ 
+        display:flex;
+        width:80%;
+        flex-direction:column;
+        align-items:center;
+        margin:0 auto;
+        max-width:800px;
+        height:100vh;
+        justify-content: center;
+       
+        
+      
+}
+.site-header{
+    text-align:center;
+    
+}
+h1{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+   color:rgb(45, 32, 127);
+   font-size:50px;
+   margin-bottom: 10px
+
+}
+.park-name{
+    font-family: cursive;
+    font-size:50px;
+    font-weight: 2000;
+    
+}
+.tagline{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+   color:grey;
+   font-style:italic;
+   font-size:20px
+   
+}
+
+.about{
+    color:black;
+    font-size:20px;
+    line-height:normal;
+    margin:20px;
+    
+}
+.mascot-placeholder{
+    display:flex;
+    justify-content:center;
+    
+   
+    
+
+}
+#mascot-image{
+    width:80%;
+    
+    margin:0 auto
+}
+.hero{
+    background-color:white;
+    border:2px solid black;
+    border-radius:5%;
+    display:flex;
+    justify-content:center;
+    width:50%;
+    margin:0 auto
+}
+.actions{
+    display:flex;
+    justify-content:center;
+    gap: 30px;
+
+}
+
+.buy-tickets{
+    
+    width:200px;
+    height:40px;
+    border:none;
+    border-radius: 8%;
+    background-color:pink;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:white;
+    box-shadow: 0 0 12px pink;
+    font-weight:bold;
+    transition:0.3s
+
+
+    
+    
+}
+.buy-tickets:hover{
+    background-color: rgb(218, 124, 140);
+    box-shadow:0 0 12px rgb(218, 124, 140)
+}
+.make-donation{
+    
+   
+    width:200px;
+    height:40px;
+    border:none;
+    font-weight:bold;
+    border-radius: 5%;
+    color:grey;
+    box-shadow: 0 0 12px yellow;
+    background-color:yellow;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    transition:0.3s
+    
+
+}
+.make-donation:hover{
+    background-color:rgb(179, 179, 93);
+    box-shadow: 0 0 12px rgb(179, 179, 93);
+
+
+}
+@media (max-width: 380px) {
+    .actions {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+footer{
+    font-size:10px;
+    font-weight:lighter;
+    margin:15px;
+    border-top:1px solid grey;
+    color:grey;
+    width:100%;
+    text-align:center;
+    margin:20px
+}
