@@ -1,3 +1,25 @@
 body{
-    background-color: #080808;
+    background-color: #4b4747;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.profile h2{
+    text-align:center;
+    color: #fbe7a6;
+    background-color: white;
+    border-radius:15px;
+    width:50%;
+    margin:0 auto 30px auto;
+    border:2px dotted #fbe7a6;
+    transition:0.3s;
+
+}
+.profile h2:hover{
+    animation:animation1 2s;
+}
+@keyframes animation1{
+    0%{ transform:scale(1.0); }
+    25%{ transform:scale(1.3);  box-shadow:0 0 10px  #fbe7a6;}
+    50%{ transform:scale(1.0); }
+    75%{ transform:scale(1.3);  box-shadow:0 0 10px  #fbe7a6;}
+    100%{ transform:scale(1.0); }
 }
